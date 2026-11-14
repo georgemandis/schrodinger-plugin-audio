@@ -1,0 +1,39 @@
+{
+  "id": "audio",
+  "name": "Audio",
+  "version": "0.1.0",
+  "description": "Paste text as a spoken audio file, or a copied recording or video as its transcript",
+  "author": "georgemandis",
+  "type": "native",
+  "entry": {
+    "macos-arm64": "lib/libschrodinger_plugin_audio.dylib"
+  },
+  "platforms": ["macos"],
+  "modes": [
+    { "id": "speak", "label": "Text to speech", "default": true },
+    { "id": "transcript", "label": "Transcript" },
+    { "id": "timestamps", "label": "Transcript with timestamps" }
+  ],
+  "config": {
+    "voice": {
+      "type": "select",
+      "default": "Automatic",
+      "label": "Voice",
+      "description": "Automatic picks the best installed voice for the language of the text. Add higher-quality voices in System Settings, under Accessibility, Spoken Content.",
+      "options": ["Automatic", "Samantha", "Daniel", "Karen", "Moira", "Tessa", "Rishi"]
+    },
+    "speed": {
+      "type": "select",
+      "default": "Normal",
+      "label": "Speaking speed",
+      "options": ["Slow", "Normal", "Fast"]
+    },
+    "language": {
+      "type": "select",
+      "default": "System language",
+      "label": "Transcript language",
+      "description": "The language spoken in the recording. Transcription runs on this Mac; a language must be set up for Dictation in System Settings, under Keyboard.",
+      "options": ["System language", "en-US", "en-GB", "en-AU", "en-IN", "es-ES", "es-MX", "fr-FR", "fr-CA", "de-DE", "it-IT", "pt-BR", "pt-PT", "nl-NL", "ca-ES", "ja-JP", "ko-KR", "zh-CN", "zh-TW"]
+    }
+  }
+}
